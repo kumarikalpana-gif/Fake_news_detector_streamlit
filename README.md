@@ -1,27 +1,46 @@
 # Fake News Detector (Streamlit)
 
+A lightweight Streamlit web app that uses a trained Logistic Regression model and TF-IDF vectorizer to classify news as **Real** or **Fake**.
 
-This repo contains a Streamlit web app for detecting fake news. It expects pre-trained scikit-learn models and a vectorizer saved as `.pkl` files inside `models/`.
+---
 
+## How to Prepare Models
 
-## How to prepare models
+Train your model locally and save these two files:
 
+* `LR_model.joblib`
+* `vectorizer.joblib`
 
-1. Train models locally in your notebook following your existing script.
-2. Save the models with pickle into `models/`:
-- `LR_model.pkl`
-- `DT_model.pkl`
-- `GB_model.pkl`
-- `RF_model.pkl`
-- `vectorizer.pkl`
+(If you have `.pkl` files, convert them using joblib.)
 
+---
 
-Alternatively, you can commit the `.pkl` files into the repository (not recommended for large files).
-
-
-## Run locally
-
+## Run Locally
 
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
+```
+
+---
+
+## Deploy on Streamlit Cloud
+
+1. Upload to GitHub:
+
+   * `app.py`
+   * `LR_model.joblib`
+   * `vectorizer.joblib`
+   * `requirements.txt`
+   * `README.md`
+2. Go to [https://share.streamlit.io](https://share.streamlit.io)
+3. Choose your repo → select `app.py` → Deploy.
+
+---
+
+## Usage
+
+Enter news text → click **Check** → view prediction:
+
+* 🟢 Real News
+* 🔴 Fake News
